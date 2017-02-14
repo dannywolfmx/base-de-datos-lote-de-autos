@@ -10,7 +10,6 @@ CREATE TABLE Automovil
 )
 
 
-
 CREATE TABLE COLOR
 (
     IDColor         int,
@@ -20,10 +19,17 @@ CREATE TABLE COLOR
 
 
 
+CREATE TABLE ColorAutomovil
+(
+    IDAutomovil     int,
+    IDColor         int
+)
+
+
 CREATE TABLE TipoProblema
 (
     IDTipoProblema  int,
     Descuento       Float,
     Nombre          varchar(255),
-    Nivel
+    Nivel           int,
 )
