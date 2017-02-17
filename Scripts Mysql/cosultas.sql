@@ -58,7 +58,7 @@ Select      Automovil.IDAutomovil,
             GROUP_CONCAT(DISTINCT Color.Nombre) Colores,
             Automovil.Precio,
             Automovil.Costo,
-            IFNULL(GROUP_CONCAT(TipoProblema.Nombre),'No tiene problemas')
+            IFNULL(GROUP_CONCAT(TipoProblema.Nombre),'No tiene problemas') Problema
 
 from        Automovil
 INNER JOIN  Marca
