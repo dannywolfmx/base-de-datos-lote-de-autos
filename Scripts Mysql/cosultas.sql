@@ -57,6 +57,7 @@ Select      Automovil.IDAutomovil,
             Automovil.anio, 
             GROUP_CONCAT(DISTINCT Color.Nombre) Colores,
             Automovil.Precio,
+            Automovil.Costo,
             IFNULL(GROUP_CONCAT(TipoProblema.Nombre),'No tiene problemas')
 
 from        Automovil

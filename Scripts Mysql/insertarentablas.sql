@@ -477,29 +477,43 @@ CREATE TABLE ProblemaAutomovil
 );
 */
 
+/*Creamos una promesa*/
+DECLARE @IDautoActual int;
+
+SET @IDautoActual := (select  IDAutomovil      from Automovil      where(Modelo = 'Kuga' and (
+        (select    IDColor      from Color          where(Nombre = 'Blanco'))
+    )));
+
+
 INSERT                  INTO 
 ProblemaAutomovil       (IDTipoProblema, IDAutomovil, Cantidad)
 VALUES          
 (
     (select    IDTipoProblema   from TipoProblema   where(Nombre = 'Rayon')),
-    (select    IDAutomovil      from Automovil      where(Modelo = 'Kuga' and (
-        (select    IDColor      from Color          where(Nombre = 'Blanco'))
-    ))),
+    @IDautoActual,
     10
 );
+
+
+
+SET @IDautoActual :=     (select    IDAutomovil      from Automovil      where(Modelo = 'Kuga' and (
+        (select    IDColor      from Color          where(Nombre = 'Rojo'))
+    )));
 
 INSERT                  INTO 
 ProblemaAutomovil       (IDTipoProblema, IDAutomovil)
 VALUES          
 (
     (select    IDTipoProblema   from TipoProblema   where(Nombre = 'Frenos')),
-    (select    IDAutomovil      from Automovil      where(Modelo = 'Kuga' and (
-        (select    IDColor      from Color          where(Nombre = 'Rojo'))
-    )))
+    @IDautoActual
 );
 
 
 /**/
+
+SET @IDautoActual :=     (select    IDAutomovil      from Automovil      where(Modelo = 'Focus' and (
+        (select    IDColor      from Color          where(Nombre = 'Plata'))
+    )));
 
 
 INSERT                  INTO 
@@ -507,54 +521,61 @@ ProblemaAutomovil       (IDTipoProblema, IDAutomovil, Cantidad)
 VALUES          
 (
     (select    IDTipoProblema   from TipoProblema   where(Nombre = 'Rayon')),
-    (select    IDAutomovil      from Automovil      where(Modelo = 'Focus' and (
-        (select    IDColor      from Color          where(Nombre = 'Plata'))
-    ))),
+    @IDautoActual,
     7
 );
+
+SET @IDautoActual :=      (select    IDAutomovil      from Automovil      where(Modelo = 'Focus' and (
+        (select    IDColor      from Color          where(Nombre = 'Blanco'))
+    )));
 
 INSERT                  INTO 
 ProblemaAutomovil       (IDTipoProblema, IDAutomovil)
 VALUES          
 (
     (select    IDTipoProblema   from TipoProblema   where(Nombre = 'Luces')),
-    (select    IDAutomovil      from Automovil      where(Modelo = 'Focus' and (
-        (select    IDColor      from Color          where(Nombre = 'Blanco'))
-    )))
+    @IDautoActual
+
 );
 
 /**/
+
+SET @IDautoActual :=   (select    IDAutomovil      from Automovil      where(Modelo = 'Focus' and (
+        (select    IDColor      from Color          where(Nombre = 'Plata'))
+    )));
 
 INSERT                  INTO 
 ProblemaAutomovil       (IDTipoProblema, IDAutomovil, Cantidad)
 VALUES          
 (
     (select    IDTipoProblema   from TipoProblema   where(Nombre = 'Direccion hidraulica')),
-    (select    IDAutomovil      from Automovil      where(Modelo = 'Focus' and (
-        (select    IDColor      from Color          where(Nombre = 'Plata'))
-    )))
+    @IDautoActual
 );
+
+SET @IDautoActual :=  (select    IDAutomovil      from Automovil      where(Modelo = 'Mondeo' and (
+        (select    IDColor      from Color          where(Nombre = 'Negro'))
+    )));
 
 INSERT                  INTO 
 ProblemaAutomovil       (IDTipoProblema, IDAutomovil)
 VALUES          
 (
     (select    IDTipoProblema   from TipoProblema   where(Nombre = 'Luces')),
-    (select    IDAutomovil      from Automovil      where(Modelo = 'Mondeo' and (
-        (select    IDColor      from Color          where(Nombre = 'Negro'))
-    )))
+    @IDautoActual
 );
 
 /**/
+
+SET @IDautoActual :=      (select    IDAutomovil      from Automovil      where(Modelo = 'Seria 3' and (
+        (select    IDColor      from Color          where(Nombre = 'Negro'))
+    )));
 
 INSERT                  INTO 
 ProblemaAutomovil       (IDTipoProblema, IDAutomovil)
 VALUES          
 (
     (select    IDTipoProblema   from TipoProblema   where(Nombre = 'Frenos')),
-    (select    IDAutomovil      from Automovil      where(Modelo = 'Seria 3' and (
-        (select    IDColor      from Color          where(Nombre = 'Negro'))
-    )))
+    @IDautoActual
 );
 
 /**/
